@@ -136,6 +136,7 @@ include("connection.php");
         </div>
         <div class="col-md-3">
           <button type="button" class="btn btn-danger"><i class="fa fa-times-circle fa-lg" aria-hidden="true"></i> Decline</button>
+            <button type="button" class="btn btn-danger"><i class="fa fa-times-circle fa-lg" aria-hidden="true"></i> Decline</button>
             </div>
         </div>
       </div>
