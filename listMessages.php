@@ -15,6 +15,7 @@ include("connection.php");
   <!-- JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 <script src="tabdrop/js/bootstrap-tabdrop.js"></script>
+<script src="js/script.js"></script>
   <!--Style Sheet-->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
@@ -109,6 +110,17 @@ include("connection.php");
 
         <div class="container-fluid">
              <!-- Page Heading -->
+             <?php
+             include("connection.php");
+
+
+         $qr="select messages.id as Id, messages.date as Date, messages.message as Message,messages.userFromId as userId,
+                      user.firstName as first, user.lastName  as last
+                     from messages
+                     Join user
+                     ON messages.userFromId=user.userID ";
+         $result=mysql_query($qr);
+         ?>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -122,14 +134,35 @@ include("connection.php");
               <h3>Message List</h3>
               </div>
               <table class="table">
+                <thead>
                 <tr>
+                  <th> </th>
                   <th>Student Name</th>
                   <th>Date Sent</th>
-                  <th>Preview</th>
+                  <th>Message Preview</th>
                 </tr>
+                <thead>
+                  <tbody>
+                <?php
+                while($row= mysql_fetch_assoc( $result )){
+                  echo
+                  "<tr>
+                  <td><input type='checkbox' value='{$row['userId']}' id='check'></td>
+                  <td>{$row['first']} {$row['last']}</td>
+                  <td>{$row['Date']}</td>
+                  <td><b>Subject:</b> {$row['Message']}</td>
+                  </tr>\n";
+                }
+                ?>
+              </tbody>
           </table>
-
-
+          <div class="row">
+            <div class="col-md-2">
+            <button type="button" class="btn btn-success" id="approve"><i class="fa fa-check-circle fa-lg" aria-hidden="true"></i> Approve</button>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-danger"><i class="fa fa-times-circle fa-lg" aria-hidden="true"></i> Deny</button>
+          </div>
         </div>
         <!-- /.row -->
 

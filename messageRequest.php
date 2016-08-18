@@ -119,25 +119,24 @@ include("connection.php");
 
 
         <div class="well">
-
-          <div class="col-md-offset-4">
-          <h3>Student Message Request </h3>
+         <div class="row">
+          <div class="col-md-offset-4" id="messageHeading">
+          <h4>Student Message Request </h4>
           </div>
-          <div class="row">
-          <div class="col-md-offset-1 col-md-10 well">
-            <div>From:</div>
-            <div>To:</div>
-          </div>
-          <div class="col-md-2"></div>
         </div>
+        <div class="row">
+        <div class="form-group col-md-offset-1 col-md-10">
+          <textarea class="form-control" rows="10" id="comment">
+            From:
+          </textarea>
+        </div>
+      </div>
         <div class="row">
           <div class="col-md-offset-4 col-md-2">
           <button type="button" class="btn btn-success"><i class="fa fa-check-circle fa-lg" aria-hidden="true"></i> Accept</button>
         </div>
         <div class="col-md-3">
           <button type="button" class="btn btn-danger"><i class="fa fa-times-circle fa-lg" aria-hidden="true"></i> Decline</button>
-            <button type="button" class="btn btn-danger"><i class="fa fa-times-circle fa-lg" aria-hidden="true"></i> Decline</button>
-            </div>
         </div>
       </div>
     </div>
